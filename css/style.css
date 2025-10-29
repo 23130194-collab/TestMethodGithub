@@ -1,1 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: auto;
+    background-color: white;
+}
 
+main {
+    width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.menu {
+    background-color: #eeeeee; /* Màu nền chung của thanh menu */
+    display: flex; /* Sắp xếp các mục menu theo hàng ngang */
+    border-bottom: 2px solid #8b0000; /* Đường viền đỏ phía dưới */
+    border-left: 5px solid #8b0000;
+    width: fit-content; /* Giữ chiều rộng vừa với nội dung */
+}
+
+.item {
+    position: relative; /* Quan trọng cho việc định vị menu con */
+    padding: 9px 20px;
+    color: #322a41;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.item:hover {
+    color: white;
+    background-color: #8b0000;
+}
+
+.sub {
+    display: none;
+    position: absolute;
+    top: 100%; /* Đặt ngay dưới mục menu cấp 1 */
+    left: 0;
+    background-color: #eeeeee;
+    border-top: 2px solid #8b0000; /* Đường viền đỏ phía trên để nối với menu cha */
+}
+
+.item:hover > .sub {
+    display: block;
+}
+
+.sub-item {
+    padding: 10px 15px;
+    color: #322a41;
+    white-space: nowrap; /* Ngăn không cho chữ xuống dòng */
+    border-bottom: 2px solid #ddd; /* Đường phân cách giữa các mục con */
+}
+
+.sub-item:hover {
+    background-color: #eeeeee; /* Màu xám nhạt khi hover */
+    color: #8b0000; /* Đổi màu chữ thành đỏ  */
+}
