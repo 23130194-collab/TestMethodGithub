@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     try {
         console.log("Đang tải footer từ: /html/footer.html");
-        const res = await fetch("/html/footer.html");
+        const res = await fetch("/TestMethodGithub/html/footer.html");
         
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
