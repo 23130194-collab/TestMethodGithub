@@ -3,31 +3,25 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!placeholder) return;
 
     try {
+        console.log("Đang tải footer từ: /html/footer.html");
         const res = await fetch("/html/footer.html");
+        
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
         const html = await res.text();
         placeholder.innerHTML = html;
+        console.log("Footer loaded");
 
-        // Gắn CSS nếu chưa có
-        if (!document.querySelector('link[href="css/footer.css"]')) {
+        // Load CSS
+        if (!document.querySelector('link[href="/css/footer.css"]')) {
             const link = document.createElement("link");
             link.rel = "stylesheet";
-            link.href = "css/footer.css";
+            link.href = "/css/footer.css";
             document.head.appendChild(link);
         }
 
-        // Gắn FontAwesome nếu cần
-        if (!document.querySelector('link[href*="font-awesome"]')) {
-            const font = document.createElement("link");
-            font.rel = "stylesheet";
-            font.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css";
-            document.head.appendChild(font);
-        }
-
-        // Gắn JS footer nếu có
-        const script = document.createElement("script");
-        script.src = "js/footer.js";
-        document.body.appendChild(script);
     } catch (err) {
-        console.error("Lỗi khi tải footer:", err);
+        console.error("Lỗi tải footer:", err);
+        placeholder.innerHTML = `<p style="color:red;">Lỗi: Không tải được footer</p>`;
     }
 });
