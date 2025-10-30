@@ -4,16 +4,16 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!placeholder) return;
 
     try {
-        const res = await fetch("header.html");
+        const res = await fetch("html/header.html");
         if (!res.ok) throw new Error("Không thể tải header.html");
         const html = await res.text();
         placeholder.innerHTML = html;
 
         // Thêm CSS nếu cần
-        if (!document.querySelector('link[href="header.css"]')) {
+        if (!document.querySelector('link[href="css/header.css"]')) {
             const link = document.createElement("link");
             link.rel = "stylesheet";
-            link.href = "header.css";
+            link.href = "css/header.css";
             document.head.appendChild(link);
         }
 
