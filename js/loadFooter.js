@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     try {
         console.log("Đang tải footer từ: /html/footer.html");
-        const res = await fetch("/html/footer.html");
+        const res = await fetch("html/footer.html");
         
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
@@ -13,10 +13,10 @@ window.addEventListener("DOMContentLoaded", async () => {
         console.log("Footer loaded");
 
         // Load CSS
-        if (!document.querySelector('link[href="/css/footer.css"]')) {
+        if (!document.querySelector('link[href="css/footer.css"]')) {
             const link = document.createElement("link");
             link.rel = "stylesheet";
-            link.href = "/css/footer.css";
+            link.href = "css/footer.css";
             document.head.appendChild(link);
         }
 
