@@ -3,15 +3,15 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!placeholder) return;
 
     try {
-        const res = await fetch("footer.html");
+        const res = await fetch("html/footer.html");
         const html = await res.text();
         placeholder.innerHTML = html;
 
         // Gắn CSS nếu chưa có
-        if (!document.querySelector('link[href="footer.css"]')) {
+        if (!document.querySelector('link[href="css/footer.css"]')) {
             const link = document.createElement("link");
             link.rel = "stylesheet";
-            link.href = "footer.css";
+            link.href = "css/footer.css";
             document.head.appendChild(link);
         }
 
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         // Gắn JS footer nếu có
         const script = document.createElement("script");
-        script.src = "footer.js";
+        script.src = "js/footer.js";
         document.body.appendChild(script);
     } catch (err) {
         console.error("Lỗi khi tải footer:", err);
