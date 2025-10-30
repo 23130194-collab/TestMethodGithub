@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!placeholder) return;
 
     try {
-        const res = await fetch("html/footer.html");
+        const res = await fetch("/TestMethodGithub/html/footer.html");
         const html = await res.text();
         placeholder.innerHTML = html;
 
