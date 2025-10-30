@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     if (!placeholder) return;
 
     try {
-        const res = await fetch("html/header.html");
+        const res = await fetch("/TestMethodGithub/html/header.html");
         if (!res.ok) throw new Error("Không thể tải header.html");
         const html = await res.text();
         placeholder.innerHTML = html;
